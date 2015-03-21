@@ -1,0 +1,11 @@
+{
+  "name": "vtex-spotify",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Michael Benford <michael@michaelbenford.net>",
+  "license": "MIT"
+}
