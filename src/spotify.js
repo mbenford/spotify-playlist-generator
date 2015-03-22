@@ -6,7 +6,7 @@ module.exports = {
         return util.format('https://accounts.spotify.com/authorize?client_id=%s&response_type=%s&redirect_uri=%s&scope=%s',
             clientId, 'code', encodeURIComponent(responseUri), scope);
     },
-    getAccessToken: function(code, responseUri, clientId, clientKey, callback) {
+    getAccessToken: function(code, clientId, clientKey, responseUri, callback) {
         request.post({
             url: 'https://accounts.spotify.com/api/token',
             headers: {

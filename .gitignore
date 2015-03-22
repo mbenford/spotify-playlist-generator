@@ -30,3 +30,6 @@ node_modules
 
 # Webstorm folder
 .idea
+
+# config file
+config.json

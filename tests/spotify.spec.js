@@ -27,7 +27,7 @@ describe('spotify', function() {
             requestMock.post = sinon.spy();
 
             // Act
-            sut.getAccessToken('1234', 'http://localhost/callback', 'ABC', 'XYZ', noop);
+            sut.getAccessToken('1234', 'ABC', 'XYZ', 'http://localhost/callback', noop);
 
             // Assert
             expect(requestMock.post.calledOnce).to.be(true);

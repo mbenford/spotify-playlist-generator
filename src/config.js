@@ -1,7 +1,9 @@
+var configFile = require('../config.json');
+
 module.exports = {
-    clientId: process.env.SPOTIFY_CLIENT_ID,
-    clientSecret: process.env.SPOTIFY_CLIENT_SECRET,
-    redirectUri: process.env.SPOTIFY_REDIRECT_URI,
+    clientId: configFile.clientId,
+    clientSecret: configFile.clientSecret,
+    redirectUri: configFile.redirectUri,
     missingRequiredConfig: function() {
         return !this.clientId || !this.clientSecret || !this.redirectUri;
     }
