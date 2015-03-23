@@ -22,8 +22,11 @@
     font-family: "Lucida Console", Monaco, monospace;
 }
 
-.playlist .track-name .track-artist .track-album {
+.playlist .track-name, .track-artist, .track-album {
     font-size: 16px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .playlist .header {

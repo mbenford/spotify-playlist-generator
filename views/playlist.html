@@ -19,26 +19,20 @@
   <div class="row playlist">
     <div class="col-md-12">
       <div class="row header">
-        <div class="col-md-4">
-          <span>Nome</span>
-        </div>
-        <div class="col-md-3">
-          <span>Artista</span>
-        </div>
-        <div class="col-md-5">
-          <span>Álbum</span>
-        </div>
+        <div class="col-md-4">Nome</div>
+        <div class="col-md-3">Artista</div>
+        <div class="col-md-5">Álbum</div>
       </div>
       <% tracks.forEach(function(track) { %>
       <div class="row track">
-        <div class="col-md-4">
-          <span class="track-name"><strong><%=track.name[0]%></strong><%=track.name.substring(1)%></span>
+        <div class="col-md-4 track-name">
+          <strong><%=track.name[0]%></strong><%=track.name.substring(1)%>
         </div>
-        <div class="col-md-3">
-          <span class="track-artist"><%=track.artist%></span>
+        <div class="col-md-3 track-artist">
+          <%=track.artist%>
         </div>
-        <div class="col-md-5">
-          <span class="track-album"><%=track.album%></span>
+        <div class="col-md-5 track-album">
+          <%=track.album%>
         </div>
       </div>
       <% }); %>
