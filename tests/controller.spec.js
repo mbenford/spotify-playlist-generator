@@ -143,24 +143,22 @@ describe('controller', function() {
         });
 
         describe('casos de erro', function() {
-            var sendSpy;
+            var renderSpy;
 
             beforeEach(function() {
-                sendSpy = sinon.spy();
-                resMock.status = sinon.stub().withArgs(500).returns({ send: sendSpy });
+                renderSpy = sinon.spy();
+                resMock.status = sinon.stub().withArgs(500).returns({ render: renderSpy });
             });
 
             it('retorna um erro caso o login no Spotify não seja realizado com sucesso', function() {
                 // Arrange
-                var sendSpy = sinon.spy();
                 reqMock.query.error = 'access_denied';
-                resMock.status = sinon.stub().withArgs(500).returns({ send: sendSpy });
 
                 // Act
                 sut.handleSpotifyResponse(reqMock, resMock);
 
                 // Assert
-                expect(sendSpy.calledWith('Ocorreu um erro ao realizar o login com o Spotify: access_denied')).to.be(true);
+                expect(renderSpy.calledWith('error.html', { error: 'Ocorreu um erro ao realizar o login com o Spotify: access_denied' })).to.be(true);
             });
 
             it('retorna um erro caso a obtenção do token de acesso não seja realizada com sucesso', function(done) {
@@ -172,7 +170,7 @@ describe('controller', function() {
 
                 // Assert
                 waitForCompletion(done, function() {
-                    expect(sendSpy.calledWith('Ocorreu um erro ao tentar obter o token de acesso')).to.be(true);
+                    expect(renderSpy.calledWith('error.html', { error: 'Ocorreu um erro ao tentar obter o token de acesso' })).to.be(true);
                 });
             });
 
@@ -186,7 +184,7 @@ describe('controller', function() {
 
                 // Assert
                 waitForCompletion(done, function() {
-                    expect(sendSpy.calledWith('Ocorreu um erro ao tentar obter os dados do usuário')).to.be(true);
+                    expect(renderSpy.calledWith('error.html', { error: 'Ocorreu um erro ao tentar obter os dados do usuário' })).to.be(true);
                 });
             });
 
@@ -200,7 +198,7 @@ describe('controller', function() {
 
                 // Assert
                 waitForCompletion(done, function() {
-                    expect(sendSpy.calledWith('O usuário informado não possui um nome configurado em seu perfil no Spotify')).to.be(true);
+                    expect(renderSpy.calledWith('error.html', { error: 'O usuário informado não possui um nome configurado em seu perfil no Spotify' })).to.be(true);
                 });
             });
 
@@ -215,7 +213,7 @@ describe('controller', function() {
 
                 // Assert
                 waitForCompletion(done, function() {
-                    expect(sendSpy.calledWith('Ocorreu um erro ao tentar obter as músicas do usuário')).to.be(true);
+                    expect(renderSpy.calledWith('error.html', { error: 'Ocorreu um erro ao tentar obter as músicas do usuário' })).to.be(true);
                 });
             });
         });

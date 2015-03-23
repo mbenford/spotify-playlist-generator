@@ -9,7 +9,7 @@ module.exports = {
     },
     handleSpotifyResponse: function(req, res) {
         if (req.query.error) {
-            res.status(500).send('Ocorreu um erro ao realizar o login com o Spotify: ' + req.query.error);
+            res.status(500).render('error.html', { error: 'Ocorreu um erro ao realizar o login com o Spotify: ' + req.query.error });
             return;
         }
 
@@ -60,7 +60,7 @@ module.exports = {
                 );
             }
         ], function(error, result) {
-            if (error) res.status(500).send(error);
+            if (error) res.status(500).render('error.html', { error: error });
             else res.render('playlist.html', result);
         });
     }
