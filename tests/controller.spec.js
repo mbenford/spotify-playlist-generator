@@ -190,6 +190,20 @@ describe('controller', function() {
                 });
             });
 
+            it('retorna um erro caso o usuário não possua um nome configurado no Spotify', function(done) {
+                // Arrange
+                spotifyMock.getAccessToken = sinon.stub().yields(null, { access_token: 'abc' });
+                spotifyMock.getUserInfo = sinon.stub().yields(null, { display_name: '' });
+
+                // Act
+                sut.handleSpotifyResponse(reqMock, resMock);
+
+                // Assert
+                waitForCompletion(done, function() {
+                    expect(sendSpy.calledWith('O usuário informado não possui um nome configurado em seu perfil no Spotify')).to.be(true);
+                });
+            });
+
             it('retorna um erro caso a obtenção das músicas do usuário não seja realizada com sucesso', function(done) {
                 // Arrange
                 spotifyMock.getAccessToken = sinon.stub().yields(null, { access_token: 'abc' });

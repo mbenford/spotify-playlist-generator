@@ -23,6 +23,7 @@ module.exports = {
             function(accessInfo, callback) {
                 spotify.getUserInfo(accessInfo.access_token, function(error, userInfo) {
                     if (error) callback('Ocorreu um erro ao tentar obter os dados do usuário');
+                    else if (!userInfo.display_name) callback('O usuário informado não possui um nome configurado em seu perfil no Spotify');
                     else callback(null, accessInfo, userInfo);
                 });
             },
