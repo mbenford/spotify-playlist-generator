@@ -1,6 +1,6 @@
 var _ = require('lodash');
 
-var defaultTrack = { name: 'Null and Void', artist: 'Detroit' };
+var defaultTrack = { name: 'Null and Void', artist: 'Detroit', album: 'Horizon' };
 
 module.exports = function(username) {
     var chars = username.replace(/\s/g, '').toLowerCase().split(''),

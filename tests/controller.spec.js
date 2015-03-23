@@ -135,7 +135,7 @@ describe('controller', function() {
                         tracks: [
                             { name: 'A', artist: artists[0].name, album: album.name },
                             { name: 'N', artist: artists[0].name, album: album.name },
-                            { name: 'Null and Void', artist: 'Detroit' },
+                            { name: 'Null and Void', artist: 'Detroit', album: 'Horizon' },
                         ]
                     })).to.be(true);
                 })

@@ -3,7 +3,7 @@ var expect = require('expect.js'),
     playlistGenerator = require('../src/playlist-generator');
 
 describe('playlist', function() {
-    var defaultTrack = { name: 'Null and Void', artist: 'Detroit'},
+    var defaultTrack = { name: 'Null and Void', artist: 'Detroit', album: 'Horizon' },
         artists = [ { name: 'Artista' }],
         album = { name: 'Album' },
         tracks = [
