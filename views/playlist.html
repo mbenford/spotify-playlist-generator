@@ -4,66 +4,49 @@
   <meta charset="UTF-8">
   <title>Gerador de playlist</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-  <style>
-    .track-list {
-      list-style-type: none;
-      margin-top: 10px;
-    }
-
-    .track:hover {
-      background-color: silver;
-    }
-
-    .track-name {
-      font-family: "Lucida Console", Monaco, monospace;
-    }
-
-    .track-name .track-artist .track-album {
-      font-size: 16px;
-    }
-
-    .header {
-      font-weight: bold;
-      font-size: 16px;
-    }
-  </style>
+  <link rel="stylesheet" href="/static/styles.css"/>
 </head>
 <body>
 <div class="container">
-  <div class="jumbotron">
-    <div class="row">
-      <div class="col-md-12 text-center">
-        <p class="lead"><strong><%=username%></strong>, esta é a sua playlist personalizada.</p>
-        <p class="small">Foram analisadas aproximadamente <strong><%=tracksProcessedCount%></strong> músicas da sua coleção.</p>
-      </div>
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <p class="lead">
+        <strong><%=username%></strong>, esta é a sua playlist personalizada. <br/>
+        Foram analisadas aproximadamente <strong><%=tracksProcessedCount%></strong> músicas da sua coleção.
+      </p>
     </div>
-    <div class="row">
-      <div class="col-md-12">
-        <div class="row header">
-          <div class="col-md-4">
-            <span>Título</span>
-          </div>
-          <div class="col-md-3">
-            <span>Artista</span>
-          </div>
-          <div class="col-md-5">
-            <span>Álbum</span>
-          </div>
+  </div>
+  <div class="row playlist">
+    <div class="col-md-12">
+      <div class="row header">
+        <div class="col-md-4">
+          <span>Nome</span>
         </div>
-        <% tracks.forEach(function(track) { %>
-        <div class="row track">
-          <div class="col-md-4">
-            <span class="track-name"><strong><%=track.name[0]%></strong><%=track.name.substring(1)%></span>
-          </div>
-          <div class="col-md-3">
-            <span class="track-artist"><%=track.artist%></span>
-          </div>
-          <div class="col-md-5">
-            <span class="track-album"><%=track.album%></span>
-          </div>
+        <div class="col-md-3">
+          <span>Artista</span>
         </div>
-        <% }); %>
+        <div class="col-md-5">
+          <span>Álbum</span>
+        </div>
       </div>
+      <% tracks.forEach(function(track) { %>
+      <div class="row track">
+        <div class="col-md-4">
+          <span class="track-name"><strong><%=track.name[0]%></strong><%=track.name.substring(1)%></span>
+        </div>
+        <div class="col-md-3">
+          <span class="track-artist"><%=track.artist%></span>
+        </div>
+        <div class="col-md-5">
+          <span class="track-album"><%=track.album%></span>
+        </div>
+      </div>
+      <% }); %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <a href="/login-spotify"><button class="btn btn-lg btn-success">Gerar novamente</button></a>
     </div>
   </div>
 </div>

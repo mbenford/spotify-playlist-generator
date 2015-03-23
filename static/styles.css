@@ -1,0 +1,32 @@
+.container {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #eee;
+}
+
+.playlist {
+    margin: 10px;
+    border: 1px #cecece solid;
+}
+
+.playlist .track-list {
+    list-style-type: none;
+    margin-top: 10px;
+}
+
+.playlist .track:hover {
+    background-color: silver;
+}
+
+.playlist .track-name {
+    font-family: "Lucida Console", Monaco, monospace;
+}
+
+.playlist .track-name .track-artist .track-album {
+    font-size: 16px;
+}
+
+.playlist .header {
+    font-weight: bold;
+    font-size: 16px;
+}
