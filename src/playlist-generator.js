@@ -18,7 +18,8 @@ module.exports = function(username) {
                 if (index !== -1) {
                     selectedTracks[index] = {
                         name: item.track.name,
-                        artist: item.track.artists[0].name
+                        artist: item.track.artists[0].name,
+                        album: item.track.album.name
                     };
                     chars[index] = null;
                 }

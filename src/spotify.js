@@ -1,6 +1,17 @@
 var request = require('request'),
     util = require('util');
 
+function defaultHandler(callback) {
+    return function(error, response, body) {
+        if (response.statusCode !== 200) {
+            callback(error);
+        }
+        else {
+            callback(null, JSON.parse(body));
+        }
+    }
+}
+
 module.exports = {
     getLoginUrl: function(clientId, responseUri, scope) {
         return util.format('https://accounts.spotify.com/authorize?client_id=%s&response_type=%s&redirect_uri=%s&scope=%s',
@@ -17,7 +28,7 @@ module.exports = {
                 code : code,
                 redirect_uri: encodeURIComponent(responseUri)
             }
-        }, callback);
+        }, defaultHandler(callback));
     },
     getUserInfo: function(accessToken, callback) {
         request.get({
@@ -25,7 +36,7 @@ module.exports = {
             headers: {
                 Authorization: 'Bearer ' + accessToken
             }
-        }, callback);
+        }, defaultHandler(callback));
     },
     getUserTracks: function(accessToken, limit, offset, callback) {
         request.get({
@@ -37,6 +48,6 @@ module.exports = {
                 limit: limit,
                 offset: offset
             }
-        }, callback);
+        }, defaultHandler(callback));
     }
 };

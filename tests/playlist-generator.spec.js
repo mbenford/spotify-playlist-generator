@@ -5,18 +5,19 @@ var expect = require('expect.js'),
 describe('playlist', function() {
     var defaultTrack = { name: 'Null and Void', artist: 'Detroit'},
         artists = [ { name: 'Artista' }],
+        album = { name: 'Album' },
         tracks = [
-            { track: { name: 'Z', artists: artists } },
-            { track: { name: 'a', artists: artists } },
-            { track: { name: 'A', artists: artists } },
-            { track: { name: 'e', artists: artists } },
-            { track: { name: 'f', artists: artists } },
-            { track: { name: 'g', artists: artists } },
-            { track: { name: 'q', artists: artists } },
-            { track: { name: 'p', artists: artists } },
-            { track: { name: 'l', artists: artists } },
-            { track: { name: 'u', artists: artists } },
-            { track: { name: 'x', artists: artists } },
+            { track: { name: 'Z', artists: artists, album: album } },
+            { track: { name: 'a', artists: artists, album: album } },
+            { track: { name: 'A', artists: artists, album: album } },
+            { track: { name: 'e', artists: artists, album: album } },
+            { track: { name: 'f', artists: artists, album: album } },
+            { track: { name: 'g', artists: artists, album: album } },
+            { track: { name: 'q', artists: artists, album: album } },
+            { track: { name: 'p', artists: artists, album: album } },
+            { track: { name: 'l', artists: artists, album: album } },
+            { track: { name: 'u', artists: artists, album: album } },
+            { track: { name: 'x', artists: artists, album: album } }
         ];
 
     it('inicializa a playlist com a música padrão para cada letra do nome do usuário, ignorando os espaços', function() {
@@ -39,13 +40,13 @@ describe('playlist', function() {
 
             // Assert
             expect(sut.getTracks()).to.eql([
-                { name: 'a', artist: artists[0].name },
+                { name: 'a', artist: artists[0].name, album: album.name },
                 defaultTrack,
-                { name: 'A', artist: artists[0].name },
-                { name: 'p', artist: artists[0].name },
+                { name: 'A', artist: artists[0].name, album: album.name },
+                { name: 'p', artist: artists[0].name, album: album.name },
                 defaultTrack,
-                { name: 'u', artist: artists[0].name },
-                { name: 'l', artist: artists[0].name },
+                { name: 'u', artist: artists[0].name, album: album.name },
+                { name: 'l', artist: artists[0].name, album: album.name },
                 defaultTrack,
             ]);
         });
@@ -68,9 +69,9 @@ describe('playlist', function() {
             // Act
             sut.addTracks(tracks);
             sut.addTracks([
-                { track: { name: 'N', artists: artists } },
-                { track: { name: 'a', artists: artists } },
-                { track: { name: 'A', artists: artists } },
+                { track: { name: 'N', artists: artists, album: album } },
+                { track: { name: 'a', artists: artists, album: album } },
+                { track: { name: 'A', artists: artists, album: album } },
             ]);
 
             // Assert
