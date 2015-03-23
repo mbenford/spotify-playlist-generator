@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "node_modules/mocha/bin/mocha tests/*.spec.js"
+    "test": "mocha tests/*.spec.js"
   },
   "author": "Michael Benford <michael@michaelbenford.net>",
   "license": "MIT",
