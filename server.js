@@ -1,7 +1,7 @@
 var config = require('./src/config');
 
 if (config.missingRequiredConfig()) {
-    console.log('Missing required configuration. Please be sure all required environment variables are set.');
+    console.log('Missing required configuration. Please be sure the config.json file exists and is valid.');
     process.exit(1);
 }
 
@@ -23,4 +23,4 @@ router.get('/login-spotify', controller.loginOnSpotify);
 router.get('/handle-spotify-response', controller.handleSpotifyResponse);
 
 app.listen(8899, 'localhost');
-console.log('Listening on localhost:8899');
+console.log('Server started. Listening on http://localhost:8899');

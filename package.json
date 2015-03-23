@@ -1,5 +1,5 @@
 {
-  "name": "vtex-spotify",
+  "name": "spotify-playlist-generator",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
