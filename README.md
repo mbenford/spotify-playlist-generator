@@ -27,7 +27,8 @@ Para testar se a aplicação foi instalada corretamente, execute o comando `npm 
       "clientId": "<id do cliente da aplicação registrada no Spotify>",
       "clientSecret": "<chave secreta da aplicação registrada no Spotify>"
     }
-```
+    ```
+
 5. Execute a aplicação com o comando `npm start`. A mensagem a seguir deverá aparecer no console:
 
         Server started. Listening on http://localhost:8899
